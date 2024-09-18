@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+
+    <!-- Carregar Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Carregar o Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+
+    <!-- Carregar o arquivo CSS customizado -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base_main.css') }}">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Menu lateral com Vue.js -->
+    <div id="menu-app" class="flex">
+        <!-- Barra lateral -->
+        <div :class="{'w-16': !expanded, 'w-64': expanded}" class="bg-gray-800 min-h-screen transition-all duration-300">
+
+            <!-- Ícone do menu (Hamburguer) -->
+            <div class="flex justify-center p-4 cursor-pointer" @click="toggleMenu">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt="menu icon" class="w-10 h-10">
+            </div>
+
+            <!-- Itens do menu -->
+            <div>
+                <!-- Sessão Financeiro -->
+                <div class="menu-item flex items-center text-white py-3 px-4 hover:bg-gray-700 cursor-pointer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="finance icon" class="w-8 h-8">
+                    <span v-if="expanded" class="ml-4 transition-opacity duration-300">Financeiro</span>
+                </div>
+                <div v-if="expanded" class="ml-10">
+                    <a href="/home" class="block text-white py-1 px-4 hover:bg-gray-700">Home</a>
+                    <a href="/contas" class="block text-white py-1 px-4 hover:bg-gray-700">Contas</a>
+                    <a href="/movimentos" class="block text-white py-1 px-4 hover:bg-gray-700">Movimentos</a>
+                </div>
+
+                <!-- Sessão Investimentos (Nota de Dinheiro) -->
+                <div class="menu-item flex items-center text-white py-3 px-4 hover:bg-gray-700 cursor-pointer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828854.png" alt="money icon" class="w-8 h-8">
+                    <span v-if="expanded" class="ml-4 transition-opacity duration-300">Investimentos</span>
+                </div>
+                <div v-if="expanded" class="ml-10">
+                    <a href="/dashboard" class="block text-white py-1 px-4 hover:bg-gray-700">Dashboard</a>
+                    <a href="/operacoes" class="block text-white py-1 px-4 hover:bg-gray-700">Operações</a>
+                    <a href="/planejamentos" class="block text-white py-1 px-4 hover:bg-gray-700">Planejamentos</a>
+                    <a href="/analises" class="block text-white py-1 px-4 hover:bg-gray-700">Análises</a>
+                </div>
+
+                <!-- Sessão Configurações (Engrenagem) -->
+                <div class="menu-item flex items-center text-white py-3 px-4 hover:bg-gray-700 cursor-pointer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2099/2099058.png" alt="settings icon" class="w-8 h-8">
+                    <span v-if="expanded" class="ml-4 transition-opacity duration-300">Configurações</span>
+                </div>
+                <div v-if="expanded" class="ml-10">
+                    <a href="/configuracoes" class="block text-white py-1 px-4 hover:bg-gray-700">Configurações</a>
+                    <a href="/logout" class="block text-white py-1 px-4 hover:bg-gray-700">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conteúdo principal -->
+        <div class="flex-1 p-10">
+            <h1 class="text-3xl text-gray-800">Bem-vindo à Home</h1>
+            <p class="text-lg text-gray-600">Aqui é o início do seu dashboard moderno.</p>
+        </div>
+    </div>
+
+    <!-- Carregar o script Vue.js específico -->
+    <script src="{{ url_for('static', filename='js/base_main.js') }}"></script>
+</body>
+</html>

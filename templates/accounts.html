@@ -1,0 +1,10 @@
+{% extends 'base_main.html' %}
+
+{% block content %}
+<h2 class="text-xl">Suas Contas</h2>
+<ul>
+    {% for account in accounts %}
+        <li>{{ account.account_name }} - Saldo: {{ account.balance }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

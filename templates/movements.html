@@ -1,0 +1,10 @@
+{% extends 'base_main.html' %}
+
+{% block content %}
+<h2 class="text-xl">Suas Movimentações</h2>
+<ul>
+    {% for movement in movements %}
+        <li>{{ movement.description }} - Valor: {{ movement.value }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Estilo customizado para ModernUI Dark Theme -->
+    <style>
+        body {
+            background-color: #1e1e2d; /* Fundo escuro */
+            color: #ffffff; /* Cor do texto */
+        }
+        .form-container {
+            background-color: #2a2a3b; /* Cor do fundo do formulário */
+            border-radius: 0.75rem; /* Bordas arredondadas */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Sombra */
+        }
+        .form-input {
+            background-color: #3e3e4f;
+            border: none;
+            color: #ffffff;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #6a6fff; /* Foco em roxo claro */
+        }
+        .btn-primary {
+            background-color: #6a6fff; /* Botão primário em roxo */
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background-color: #5757f5; /* Mudança de cor ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="min-h-screen flex items-center justify-center">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Carrega o script específico da página -->
+    {% if script_name %}
+    <script src="{{ url_for('static', filename='js/' ~ script_name) }}"></script>
+    {% endif %}
+</body>
+</html>

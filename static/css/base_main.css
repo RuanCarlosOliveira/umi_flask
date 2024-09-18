@@ -1,0 +1,22 @@
+/* Customizações adicionais para os itens do menu */
+.menu-item {
+    transition: background-color 0.3s ease;
+}
+
+.menu-item img {
+    width: 24px; /* Definindo um tamanho consistente para os ícones */
+    height: 24px;
+    filter: brightness(0) invert(1); /* Mantendo os ícones brancos */
+    transition: transform 0.3s ease;
+}
+
+/* Efeito de hover nos ícones */
+.menu-item:hover img {
+    transform: scale(1.1); /* Leve aumento ao passar o mouse */
+    filter: brightness(1) invert(0); /* O ícone fica preto ao passar o mouse */
+}
+
+/* Efeito de hover no fundo do item do menu */
+.menu-item:hover {
+    background-color: #2e2e3b; /* Alterar o fundo ao passar o mouse */
+}
