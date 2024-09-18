@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
+
+    <!-- Carregar o Vue.js via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+
+    <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <!-- Estilo customizado para ModernUI Dark Theme -->
@@ -37,7 +41,8 @@
     </style>
 </head>
 <body>
-    <div id="app" class="min-h-screen flex items-center justify-center">
+    <!-- O Vue.js será montado nas páginas individuais (ex.: login.html) -->
+    <div class="min-h-screen flex items-center justify-center">
         {% block content %}{% endblock %}
     </div>
 
